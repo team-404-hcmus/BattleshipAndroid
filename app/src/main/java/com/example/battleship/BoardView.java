@@ -1,4 +1,5 @@
 package com.example.battleship;
+//Class for draw board
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +8,13 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+
+import java.util.ArrayList;
+import java.util.Queue;
+
 
 public class BoardView extends View {
     public BoardView(Context context) {
@@ -35,21 +42,43 @@ public class BoardView extends View {
     public void setBoardSize(int boardSize) {
         this.boardSize = boardSize;
     }
-
     public void setBoardColor(int startColor, int endColor) {
         this.startColor = startColor;
         this.endColor = endColor;
     }
-
     public void setLineColor(int lineColor) {
         this.lineColor = lineColor;
     }
-
     public void setBoard(Board board) {
         this.board = board;
         this.boardSize= board.getSize();
     }
+    /**Touch  event  **/
+    //Touch Table Listener
+    public interface TouchBoardListener
+    {
+        void onTouch(int x, int y);
+    }
+    //list used to store clicked position for handling
+    private ArrayList<TouchBoardListener> listeners= new ArrayList<>();
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_UP:
+                float x = event.getX();
+                String debug= String.valueOf(x);
+                Log.d("debug", debug);
+                break;
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_CANCEL:
+                break;
+        }
+        return true;
+    }
+
+    /**Draw event **/
     //OnDraw Function (main func to draw)
     @Override
     protected void onDraw(Canvas canvas) {
