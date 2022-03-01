@@ -3,6 +3,9 @@ package com.example.battleship;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -10,18 +13,81 @@ public class BoardView extends View {
     public BoardView(Context context) {
         this(context, null);
     }
-
     public BoardView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
-
     public BoardView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+    //Board information
+    private Board board;
+    private int boardSize = 10;
+    private int startColor=Color.rgb(0, 231, 247);
+    private int endColor=Color.rgb(3, 39, 187);
 
+    private int lineColor = Color.WHITE;
+    private final int  lineWidth = 5;
+
+
+    Paint drawBoard = new Paint(Paint.ANTI_ALIAS_FLAG);
+    Paint drawLine = new Paint(Paint.ANTI_ALIAS_FLAG);
+    //Setter
+    public void setBoardSize(int boardSize) {
+        this.boardSize = boardSize;
+    }
+
+    public void setBoardColor(int startColor, int endColor) {
+        this.startColor = startColor;
+        this.endColor = endColor;
+    }
+
+    public void setLineColor(int lineColor) {
+        this.lineColor = lineColor;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+        this.boardSize= board.getSize();
+    }
+
+    //OnDraw Function (main func to draw)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.GREEN);
+        drawGrid(canvas);
+    }
+
+    //Draw Grid (Board Background)
+    private void drawGrid(Canvas canvas)
+    {
+        float maxCoord = maxCoord();
+        float placeSize = lineGap();
+        //draw grid background
+        this.drawBoard.setShader(new LinearGradient(0, 0, 0, getHeight(),
+                this.startColor, this.endColor, Shader.TileMode.MIRROR));
+
+        canvas.drawRect(0, 0, maxCoord, maxCoord, drawBoard);
+        //draw grid line
+        this.drawLine.setColor(this.lineColor); //Line Color
+        this.drawLine.setStrokeWidth(this.lineWidth); //Line Weight
+        for (int i = 0; i < numOfLines(); i++) {
+            float xy = i * placeSize;
+            canvas.drawLine(0, xy, maxCoord, xy, drawLine); // horizontal line
+            canvas.drawLine(xy, 0, xy, maxCoord, drawLine); // vertical line
+        }
+    }
+
+    //Calculating Func
+    //Calculate the gap between two horizontal/vertical lines.
+    protected float lineGap() {
+        return Math.min(getMeasuredWidth(), getMeasuredHeight()) / (float) boardSize;
+    }
+    // Calculate the number of horizontal/vertical lines.
+    private int numOfLines() {
+        return this.boardSize + 1;
+    }
+    //Calculate the maximum screen coordinate
+    protected float maxCoord() {
+        return lineGap() * (numOfLines() - 1);
     }
 }

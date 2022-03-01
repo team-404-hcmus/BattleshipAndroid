@@ -12,6 +12,10 @@ public class Board {
         createBoard();
     }
 
+    public int getSize() {
+        return size;
+    }
+
     //Initializing all position of board
     private void createBoard(){
         for(int y = 0; y < this.grid.length; y++){
