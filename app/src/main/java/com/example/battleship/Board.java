@@ -6,8 +6,12 @@ public class Board {
     private int size;
     private Position[][] board = null;
     private int placesShot=0;
-    private boolean isOver;
 
+    public Board() {
+        this.size = 10;
+        this.board = new Position[size][size];
+        createBoard();
+    }
 
     public Board(int size) {
         this.size = size;
@@ -21,9 +25,7 @@ public class Board {
     public Position[][] getBoard() {
         return board;
     }
-    public boolean isOver() {
-        return isOver;
-    }
+
     public int getPlacesShot() {
         return placesShot;
     }
@@ -106,4 +108,10 @@ public class Board {
         return true;
     }
 
+    // is board over
+    public boolean isOver() {
+        if(isAllSunk())
+            return true;
+        return false;
+    }
 }

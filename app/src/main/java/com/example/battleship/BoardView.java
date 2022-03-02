@@ -87,6 +87,12 @@ public class BoardView extends View {
             }
         }
     }
+    //Register the given listener.
+    public void addBoardTouchListener(TouchBoardListener listener) {
+        if (!listeners.contains(listener)) {
+            listeners.add(listener);
+        }
+    }
     /**Draw event **/
     //OnDraw Function (main func to draw)
     @Override

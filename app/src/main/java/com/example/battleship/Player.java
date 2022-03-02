@@ -6,10 +6,15 @@ import java.util.List;
 public class Player {
     private Board playerBoard = null;
     private ArrayList<Ship> fleet = new ArrayList<>();
-    private
+    //Getter
+
+    public Board getPlayerBoard() {
+        return playerBoard;
+    }
+
     //Create player
-    Player(Board board) {
-        setBoard(board);
+    Player() {
+        playerBoard=new Board();
         addShip(new Ship(2,"Minesweeper"));
         addShip(new Ship(3,"Submarine"));
         addShip(new Ship(4,"Battleship"));
@@ -27,6 +32,12 @@ public class Player {
             }
         }
         fleet.add(shipToAdd);
+    }
+
+    //get shoot
+    public void getShot(Position shotPlace)
+    {
+        this.playerBoard.shoot(shotPlace);
     }
     //checking win-lose condition
     public boolean isLose()
