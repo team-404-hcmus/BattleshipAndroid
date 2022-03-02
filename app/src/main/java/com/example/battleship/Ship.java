@@ -14,20 +14,23 @@ public class Ship {
     //Position that ship is placed
     private ArrayList<Position> position;
 
-    public Ship(String type, int size) {
+    public Ship(int size, String type) {
         this.type = type;
         this.size = size;
         this.isSunk=false;
         this.totalShot=0;
         position=new ArrayList<Position>();
     }
-
+    //Getter
     public String getType() {
         return type;
     }
-
     public int getSize() {
         return size;
+    }
+    //Setter
+    public void setDirection(boolean direction) {
+        this.direction = direction;
     }
 
     public void setPosition(ArrayList<Position> position) {

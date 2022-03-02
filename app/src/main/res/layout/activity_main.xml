@@ -9,7 +9,12 @@
     android:orientation="horizontal">
 
     <com.example.battleship.BoardView
+        android:id="@+id/player1"
         android:layout_width="300dp"
         android:layout_height="300dp" />
-
+    <com.example.battleship.BoardView
+        android:id="@+id/player2"
+        android:layout_marginStart="50dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 </LinearLayout>

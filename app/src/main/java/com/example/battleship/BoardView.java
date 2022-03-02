@@ -53,7 +53,7 @@ public class BoardView extends View {
         this.board = board;
         this.boardSize= board.getSize();
     }
-    /**Touch  event  **/
+    /**Touch event  **/
     //Touch Table Listener
     public interface TouchBoardListener
     {
@@ -66,9 +66,8 @@ public class BoardView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
-                float x = event.getX();
-                String debug= String.valueOf(x);
-                Log.d("debug", debug);
+                notifyTouch(event.getX(), event.getY());
+
                 break;
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
@@ -77,13 +76,25 @@ public class BoardView extends View {
         }
         return true;
     }
-
+    private void notifyTouch(float x, float y)
+    {
+        if (x <= maxCoord() && y <= maxCoord()) {
+            final float placeSize = lineGap();
+            int ix = (int) (x/ placeSize);
+            int iy = (int) (y / placeSize);
+            for (TouchBoardListener listener: listeners) {
+                listener.onTouch(ix,iy);
+            }
+        }
+    }
     /**Draw event **/
     //OnDraw Function (main func to draw)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
         drawGrid(canvas);
+        drawShotPlaces(canvas);
     }
 
     //Draw Grid (Board Background)
@@ -105,8 +116,26 @@ public class BoardView extends View {
             canvas.drawLine(xy, 0, xy, maxCoord, drawLine); // vertical line
         }
     }
+    private void drawShotPlaces(Canvas canvas) {
+        // check the state of each place of the board and draw it.
 
-    //Calculating Func
+
+    }
+    public void drawSquare(Canvas canvas, int color, int x, int y){
+        Paint drawSquareTool = new Paint(Paint.ANTI_ALIAS_FLAG);
+        drawSquareTool.setColor(color);
+        int length = 98;
+        float viewSize = maxCoord();
+        float tileSize = viewSize / 10;  //10 Is how many tiles there are
+        float offSet = 8;
+        canvas.drawRect((tileSize* x) + offSet,
+                (tileSize*y) + offSet,
+                ((tileSize * x)+tileSize) - offSet,
+                (((viewSize/10) * y)+tileSize) - offSet,
+                drawSquareTool);
+    }
+
+    /**Calculating Func **/
     //Calculate the gap between two horizontal/vertical lines.
     protected float lineGap() {
         return Math.min(getMeasuredWidth(), getMeasuredHeight()) / (float) boardSize;
