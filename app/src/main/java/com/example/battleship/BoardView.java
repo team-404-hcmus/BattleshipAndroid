@@ -67,7 +67,6 @@ public class BoardView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
                 notifyTouch(event.getX(), event.getY());
-
                 break;
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
@@ -123,10 +122,18 @@ public class BoardView extends View {
         }
     }
     private void drawShotPlaces(Canvas canvas) {
-        // check the state of each place of the board and draw it.
-
-
+        if(board == null){
+            return;
+        }
+        for(int x = 0; x < boardSize; x++){
+            for(int y = 0; y < boardSize; y++){
+                if(board.getPosAt(x, y).isHit()){
+                    drawSquare(canvas, Color.RED, x, y);
+                }
+            }
+        }
     }
+
     public void drawSquare(Canvas canvas, int color, int x, int y){
         Paint drawSquareTool = new Paint(Paint.ANTI_ALIAS_FLAG);
         drawSquareTool.setColor(color);

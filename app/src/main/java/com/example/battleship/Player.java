@@ -40,7 +40,7 @@ public class Player {
         this.playerBoard.shoot(shotPlace);
     }
     //checking win-lose condition
-    public boolean isLose()
+    public boolean isAllSunk()
     {
         return this.playerBoard.isAllSunk();
     }
