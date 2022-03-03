@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     BoardView activeBoardView,waitingBoardView;
+
     private Game gameController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +21,13 @@ public class MainActivity extends AppCompatActivity {
         gameController=new Game();
         activeBoardView=findViewById(R.id.activeBoardView);
         waitingBoardView=findViewById(R.id.waitingBoardView);
+        waitingBoardView.setShowShip(true);
 
         setNewGame(activeBoardView,waitingBoardView,
                 gameController.getPlayer().getPlayerBoard(),
                 gameController.getOpponentPlayer().getPlayerBoard());
+
+
     }
     //Start new game
     private void setNewGame(BoardView activeBoardViewView, BoardView waitingBoardView,
@@ -32,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         activeBoardViewView.addBoardTouchListener(new BoardView.TouchBoardListener() {
             @Override
             public void onTouch(int x, int y) {
-
-                boardTouched(x, y);
+                if(gameController.getActivePlayer()==gameController.getPlayer())
+                {
+                    boardTouched(x, y);
+                }
             }
         });
 
@@ -41,10 +49,27 @@ public class MainActivity extends AppCompatActivity {
     // Board touch function
     public void boardTouched( int x,  int y)
     {
-        Position hitPos =gameController.getActivePlayer().getPlayerBoard().getPosAt(x, y);
+        Board playerBoard=gameController.getActivePlayer().getPlayerBoard();
+
         gameController.hitPos(x,y);
         updateBoardsView();
         gameController.changeTurn();
+        //Random pick after change turn, than change turn again
+        if(gameController.getActivePlayer()!=gameController.getPlayer())
+        {
+
+            Random rng = new Random();
+            int boardSize =playerBoard.getSize();
+            Position toHit = null;
+
+            while (toHit == null || toHit.isHit()){
+
+                toHit = playerBoard.getPosAt(rng.nextInt(boardSize), rng.nextInt(boardSize));
+            }
+            gameController.hitPos(toHit.getX(),toHit.getY());
+            updateBoardsView();
+            gameController.changeTurn();
+        }
     }
     // Update UI canvas board
     public void updateBoardsView() {

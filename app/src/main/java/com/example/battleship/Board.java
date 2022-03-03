@@ -64,6 +64,10 @@ public class Board {
             }
             shipPos.add(pos);
         }
+        for(Position shipContainer: shipPos){
+            shipContainer.setShip(ship);
+        }
+        //update ship information
         ship.setDirection(direction);
         ship.setPosition(shipPos);
         return true;

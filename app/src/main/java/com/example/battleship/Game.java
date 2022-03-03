@@ -41,6 +41,8 @@ public class Game {
     }
     //shooting
     boolean hitPos(int x, int y){
+        //Player who shooting (active) will shoot the waiting player's board
+        //* Người bắn sẽ bắn cái bảng của người đang chờ, nên nhớ lấy của InactivePlayer
         Board board = getInactivePlayer().getPlayerBoard();
         return board.shoot(board.getPosAt(x,y));
     }

@@ -28,7 +28,7 @@ public class Position {
         return this.ship_container;
     }
 
-    //placed ship on this possition
+    //placed ship on this position
     public void setShip(Ship ship) {
         this.ship_container = ship;
     }

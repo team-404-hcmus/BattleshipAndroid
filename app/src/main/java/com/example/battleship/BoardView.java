@@ -29,6 +29,7 @@ public class BoardView extends View {
     //Board information
     private Board board;
     private int boardSize = 10;
+    private boolean showShip=false;
     private int startColor=Color.rgb(0, 231, 247);
     private int endColor=Color.rgb(3, 39, 187);
 
@@ -52,6 +53,10 @@ public class BoardView extends View {
     public void setBoard(Board board) {
         this.board = board;
         this.boardSize= board.getSize();
+    }
+    public void setShowShip(boolean choice)
+    {
+        this.showShip=choice;
     }
     /**Touch event  **/
     //Touch Table Listener
@@ -99,7 +104,12 @@ public class BoardView extends View {
         super.onDraw(canvas);
 
         drawGrid(canvas);
+        if(this.showShip)
+        {
+            drawShip(canvas);
+        }
         drawShotPlaces(canvas);
+
     }
 
     //Draw Grid (Board Background)
@@ -121,19 +131,47 @@ public class BoardView extends View {
             canvas.drawLine(xy, 0, xy, maxCoord, drawLine); // vertical line
         }
     }
+    //If the position is hit, draw red
+    /**
+     *
+     * @param canvas
+     *
+     */
     private void drawShotPlaces(Canvas canvas) {
-        if(board == null){
+        if(this.board == null){
             return;
         }
         for(int x = 0; x < boardSize; x++){
             for(int y = 0; y < boardSize; y++){
                 if(board.getPosAt(x, y).isHit()){
-                    drawSquare(canvas, Color.RED, x, y);
+                    if(board.getPosAt(x, y).hasShip())
+                    {
+                        drawSquare(canvas, Color.GREEN, x, y);
+                    }
+                    else
+                    {
+                        drawSquare(canvas, Color.RED, x, y);
+                    }
+
                 }
             }
         }
     }
-
+    //If the position have ship, draw ship ** only draw on waiting board( mean player board)
+    private void drawShip(Canvas canvas)
+    {
+        if(this.board ==null)
+        {
+            return;
+        }
+        for(int x = 0; x < boardSize; x++){
+            for(int y = 0; y < boardSize; y++){
+                if(board.getPosAt(x, y).hasShip()){
+                    drawSquare(canvas, Color.GRAY, x, y);
+                }
+            }
+        }
+    }
     public void drawSquare(Canvas canvas, int color, int x, int y){
         Paint drawSquareTool = new Paint(Paint.ANTI_ALIAS_FLAG);
         drawSquareTool.setColor(color);
