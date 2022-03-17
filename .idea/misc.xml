@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/GitHub Projects/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/paper_lines.xml" value="0.196" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/paper_with_lines.xml" value="0.196" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout-land/match_setting_view.xml" value="0.1591710758377425" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout/match_setting_view.xml" value="0.2" />
       </map>
     </option>
   </component>
