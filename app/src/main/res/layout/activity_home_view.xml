@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home_view"
+    android:background="@drawable/anh"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#E4B012"
+        android:text="Play single mode"
+        android:id="@+id/single_mode"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/single_mode"
+        android:id="@+id/mutiple_mode"
+        android:backgroundTint="#DFB22A"
+        android:text="Play multiple mode"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#E8B419"
+        android:layout_below="@id/mutiple_mode"
+        android:text="Setting"
+        android:layout_marginTop="10dp"
+        android:id="@+id/match_setting"
+        />
+
+
+
+</RelativeLayout>
