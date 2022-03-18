@@ -3,30 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/GitHub Projects/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.33" />
-<<<<<<< Updated upstream
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/paper_lines.xml" value="0.196" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/drawable/paper_with_lines.xml" value="0.196" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout-land/match_setting_view.xml" value="0.1591710758377425" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
-        <entry key="..\:/repos/BattleshipAndroid/app/src/main/res/layout/match_setting_view.xml" value="0.22" />
-=======
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.26614583333333336" />
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/layout/activity_home_view.xml" value="0.25" />
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26614583333333336" />
-        <entry key="..\:/STUDY/ThirdYear/Semester 2/Mobile development/BattleshipAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.26614583333333336" />
->>>>>>> Stashed changes
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1875" />
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1875" />
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/drawable/paper_lines.xml" value="0.1875" />
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/layout/activity_home_view.xml" value="0.17708333333333334" />
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/layout/activity_main.xml" value="0.1490036231884058" />
+        <entry key="..\:/GithubProjects/BattleshipAndroid/app/src/main/res/layout/match_setting_view.xml" value="0.1490036231884058" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
