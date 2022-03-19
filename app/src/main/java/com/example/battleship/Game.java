@@ -1,6 +1,8 @@
 package com.example.battleship;
 //Main game controller
 
+import android.util.Log;
+
 public class Game {
 
     private Player activePlayer;
@@ -50,10 +52,31 @@ public class Game {
     // change turn
     void changeTurn(){
         if(this.activePlayer == this.Player){
+
             activePlayer = this.opponentPlayer;
         }
         else{
+
             activePlayer = this.Player;
+        }
+    }
+
+    //Check win lose
+    public int isWin()
+    {
+        if(this.Player.isAllSunk())//Player Lose
+        {
+            Log.d("d","lose");
+            return 1;
+        }
+        else if(this.opponentPlayer.isAllSunk())//Player win
+        {
+            Log.d("d","win");
+            return 2;
+        }
+        else
+        {
+            return 0;
         }
     }
 }

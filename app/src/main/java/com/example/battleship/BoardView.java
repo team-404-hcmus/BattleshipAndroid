@@ -97,6 +97,7 @@ public class BoardView extends View {
             listeners.add(listener);
         }
     }
+
     /**Draw event **/
     //OnDraw Function (main func to draw)
     @Override
@@ -172,6 +173,8 @@ public class BoardView extends View {
             }
         }
     }
+
+    //Draw Square
     public void drawSquare(Canvas canvas, int color, int x, int y){
         Paint drawSquareTool = new Paint(Paint.ANTI_ALIAS_FLAG);
         drawSquareTool.setColor(color);
@@ -199,4 +202,6 @@ public class BoardView extends View {
     protected float maxCoord() {
         return lineGap() * (numOfLines() - 1);
     }
+
+
 }

@@ -97,7 +97,8 @@
         android:paddingVertical="10dp"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:backgroundTint="@color/tp"
+        android:background="@drawable/button_custom"
+        app:backgroundTint="@null"
         android:textColor="@color/black"
         />
 
