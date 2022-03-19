@@ -5,37 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home_view"
-    android:background="@drawable/anh"
+    android:background="@drawable/testing"
     >
 
     <Button
+        android:id="@+id/single_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:backgroundTint="#E4B012"
-        android:text="Play single mode"
-        android:id="@+id/single_mode"
 
-        />
+        android:background="@drawable/button_custom"
+        android:text="Play single mode"
+        android:textColor="@color/black"
+
+
+        app:backgroundTint="@null" />
     <Button
+        android:id="@+id/mutiple_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/single_mode"
-        android:id="@+id/mutiple_mode"
-        android:backgroundTint="#DFB22A"
-        android:text="Play multiple mode"
         android:layout_marginTop="10dp"
+        android:text="Play multiple mode"
+
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
+
         />
     <Button
+        android:id="@+id/match_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_centerInParent="true"
-        android:backgroundTint="#E8B419"
         android:layout_below="@id/mutiple_mode"
         android:text="Setting"
-        android:layout_marginTop="10dp"
-        android:id="@+id/match_setting"
+
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         />
 
 

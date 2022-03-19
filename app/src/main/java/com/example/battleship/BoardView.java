@@ -30,8 +30,8 @@ public class BoardView extends View {
     private Board board;
     private int boardSize = 10;
     private boolean showShip=false;
-    private int startColor=Color.rgb(0, 231, 247);
-    private int endColor=Color.rgb(3, 39, 187);
+    private int startColor=Color.rgb(224, 201, 166);
+    private int endColor=startColor;
 
     private int lineColor = Color.WHITE;
     private final int  lineWidth = 5;
