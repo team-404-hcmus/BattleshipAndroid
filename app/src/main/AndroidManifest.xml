@@ -9,24 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BattleShip">
+
         <activity
             android:name=".Home_view"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PlaceShipActivity"
+            android:exported="true"
+            android:parentActivityName=".Home_view"
+            android:screenOrientation="landscape">
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".Home_view"
             android:exported="true"
+            android:parentActivityName=".PlaceShipActivity"
             android:screenOrientation="landscape">
-
         </activity>
+
+
     </application>
 
 </manifest>
