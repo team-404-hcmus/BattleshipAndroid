@@ -203,5 +203,14 @@ public class BoardView extends View {
         return lineGap() * (numOfLines() - 1);
     }
 
-
+    //return array index base on coordirate Oxy
+    public int locatePlace(float x, float y) {
+        if (x <= maxCoord() && y <= maxCoord()) {
+            final float placeSize = lineGap();
+            int ix = (int) (x / placeSize);
+            int iy = (int) (y / placeSize);
+            return ix * 100 + iy;
+        }
+        return -1;
+    }
 }

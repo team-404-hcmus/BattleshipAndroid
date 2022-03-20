@@ -36,4 +36,24 @@ public class Ship {
     public void setPosition(ArrayList<Position> position) {
         this.position = position;
     }
+
+    public boolean isSunk() {
+        return isSunk;
+    }
+
+    public int getTotalShot() {
+        return totalShot;
+    }
+
+    public boolean getDirection() {
+        return direction;
+    }
+
+    public ArrayList<Position> getPosition() {
+        return position;
+    }
+
+    boolean isPlaced(){
+        return !position.isEmpty();
+    }
 }

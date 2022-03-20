@@ -26,24 +26,28 @@
             android:textColor="@color/black"
             android:textSize="35sp"/>
         <ImageView
+            android:id="@+id/minesweeper2"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:src="@drawable/minesweeper2"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"/>
         <ImageView
+            android:id="@+id/frigate3"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:src="@drawable/frigate3"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"/>
         <ImageView
+            android:id="@+id/battleship4"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:src="@drawable/battleship4"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"/>
         <ImageView
+            android:id="@+id/aircraftcarrier5"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:src="@drawable/aircraftcarrier5"
@@ -57,8 +61,7 @@
         android:layout_weight="1"
         >
         <com.example.battleship.BoardView
-
-            android:id="@+id/activeBoardView"
+            android:id="@+id/placeShipBoardView"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_gravity="center"/>
