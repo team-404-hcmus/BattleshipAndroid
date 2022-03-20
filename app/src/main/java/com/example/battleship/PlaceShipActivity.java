@@ -99,33 +99,27 @@ public class PlaceShipActivity extends AppCompatActivity {
                         float y = dragEvent.getY();
                         float width;
                         float height;
-
+                        float gap = boardView.lineGap();
                         if (!shipBeingChoose.getShip().getDirection()) {
-                            width = shipBeingChoose.getShipImage().getHeight();
+                            width = shipBeingChoose.getShipImage().getHeight() - 0.8f*gap;
                             height = shipBeingChoose.getShipImage().getWidth();
-
                         } else {
                             width = shipBeingChoose.getShipImage().getWidth();
-                            height = shipBeingChoose.getShipImage().getHeight();
+                            height = shipBeingChoose.getShipImage().getHeight() - 0.8f*gap;
                         }
                         //x and y coordinates of top-left of image, relative to the board
                         float boardX = x - (width / 2);
                         float boardY = y - (height / 2);
 
                         int xy = boardView.locatePlace(boardX, boardY);
+                        boardView.lineGap();
                         if (xy == -1) {
                             return true;
                         }
                         //Lấy vị trí x,y theo index
                         int xGrid = xy / 100;
                         int yGrid = xy % 100;
-                        int delta=1;
-                        if(shipBeingChoose.getShip().getSize()==2 || shipBeingChoose.getShip().getSize()==3 )
-                        {
-                            delta=2;
-                        }
-
-                        if (!board.placeShip(shipBeingChoose.getShip(), xGrid+delta, yGrid,
+                        if (!board.placeShip(shipBeingChoose.getShip(), xGrid, yGrid,
                                 shipBeingChoose.getShip().getDirection())) {
                             return true;
                         }
