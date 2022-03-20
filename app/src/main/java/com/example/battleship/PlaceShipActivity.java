@@ -23,7 +23,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class PlaceShipActivity extends AppCompatActivity {
-    Button doneBtn;
+    Button doneBtn,rotateBtn;
     ImageView minesweeper2,frigate3,battleship4, aircraftcarrier5;
     private ShipView shipBeingChoose= null;
     private BoardView boardView;
@@ -69,12 +69,20 @@ public class PlaceShipActivity extends AppCompatActivity {
 
         for(ShipView shipV : fleetView)
         {
-            ScalingImage(shipV.getShipImage());
+            //ScalingImage(shipV.getShipImage());
             setImageTouchListener(shipV);
         }
         setBoardViewDragListener(boardView,playerBoard);
-
+        //Setup Reset Btn
+        rotateBtn = findViewById(R.id.placeShipRotateBtn);
+        rotateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                return;
+            }
+        });
     }
+    /** **/
     //Event thả thuyền trên boardView (drag)
     private void setBoardViewDragListener(BoardView boardView, Board board)
     {
@@ -89,8 +97,8 @@ public class PlaceShipActivity extends AppCompatActivity {
                         Log.d("Drag","Done");
                         float x = dragEvent.getX();
                         float y = dragEvent.getY();
-                        int width;
-                        int height;
+                        float width;
+                        float height;
 
                         if (!shipBeingChoose.getShip().getDirection()) {
                             width = shipBeingChoose.getShipImage().getHeight();
@@ -111,12 +119,16 @@ public class PlaceShipActivity extends AppCompatActivity {
                         //Lấy vị trí x,y theo index
                         int xGrid = xy / 100;
                         int yGrid = xy % 100;
+                        int delta=1;
+                        if(shipBeingChoose.getShip().getSize()==2 || shipBeingChoose.getShip().getSize()==3 )
+                        {
+                            delta=2;
+                        }
 
-                        if (!board.placeShip(shipBeingChoose.getShip(), xGrid, yGrid,
+                        if (!board.placeShip(shipBeingChoose.getShip(), xGrid+delta, yGrid,
                                 shipBeingChoose.getShip().getDirection())) {
                             return true;
                         }
-
                         //redraw Boardview
                         boardView.invalidate();
                         shipBeingChoose.getShipImage().setBackgroundColor(Color.RED);
@@ -230,4 +242,7 @@ public class PlaceShipActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
+
 }

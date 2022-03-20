@@ -57,4 +57,9 @@ public class Ship implements Serializable {
     boolean isPlaced(){
         return !position.isEmpty();
     }
+
+    public void clearPosition()
+    {
+        this.position=new ArrayList<Position>();
+    }
 }
