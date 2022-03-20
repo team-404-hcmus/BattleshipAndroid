@@ -1,8 +1,9 @@
 package com.example.battleship;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ship {
+public class Ship implements Serializable {
     // type, size of ship
     private String type;
     private int size;

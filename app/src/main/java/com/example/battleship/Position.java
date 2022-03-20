@@ -1,6 +1,8 @@
 package com.example.battleship;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
     // x,y coordinate
     private int x;
     private int y;

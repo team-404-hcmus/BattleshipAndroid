@@ -1,8 +1,9 @@
 package com.example.battleship;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Board {
+public class Board implements Serializable {
     private int size;
     private Position[][] board = null;
     private int placesShot=0;

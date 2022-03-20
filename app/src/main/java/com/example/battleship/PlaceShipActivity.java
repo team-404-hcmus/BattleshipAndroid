@@ -29,6 +29,7 @@ public class PlaceShipActivity extends AppCompatActivity {
     private BoardView boardView;
     private Board playerBoard;
     private List<ShipView> fleetView = new LinkedList<>();
+    private Game gameController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,10 @@ public class PlaceShipActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MainActivity.class);
+                Bundle myBundle = new Bundle();
+                gameController=new Game(playerBoard);
+                myBundle.putSerializable("GameManager",gameController);
+                intent.putExtra("GameManager", myBundle);
                 view.getContext().startActivity(intent);
             }
         });

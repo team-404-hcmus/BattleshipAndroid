@@ -22,8 +22,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent=getIntent();
 
+        Bundle myBundle = intent.getBundleExtra("GameManager");
+        if(myBundle==null)
+        {
+            gameController=new Game();
+            Log.d("myBundle","Null");
+        }
         //Set up game
-        gameController=new Game();
+        else
+        {
+            gameController = (Game) myBundle.getSerializable("GameManager");
+        }
+
+        //gameController = (Game) myBundle.getSerializable("GameManager");
         activeBoardView=findViewById(R.id.activeBoardView);
         waitingBoardView=findViewById(R.id.waitingBoardView);
         waitingBoardView.setShowShip(true);

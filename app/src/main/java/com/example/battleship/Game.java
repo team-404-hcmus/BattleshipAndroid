@@ -3,7 +3,9 @@ package com.example.battleship;
 
 import android.util.Log;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable {
 
     private Player activePlayer;
     private Player Player;
@@ -28,6 +30,7 @@ public class Game {
     Game(Board playerBoard){
 
         Player  = new Player();
+        Player.setBoard(playerBoard);
         opponentPlayer = new Player();
         this.activePlayer = this.Player;
     }
