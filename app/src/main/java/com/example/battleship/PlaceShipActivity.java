@@ -69,7 +69,7 @@ public class PlaceShipActivity extends AppCompatActivity {
 
         for(ShipView shipV : fleetView)
         {
-            //ScalingImage(shipV.getShipImage());
+            ScalingImage(shipV.getShipImage());
             setImageTouchListener(shipV);
         }
         setBoardViewDragListener(boardView,playerBoard);
@@ -101,18 +101,18 @@ public class PlaceShipActivity extends AppCompatActivity {
                         float height;
                         float gap = boardView.lineGap();
                         if (!shipBeingChoose.getShip().getDirection()) {
-                            width = shipBeingChoose.getShipImage().getHeight() - 0.8f*gap;
-                            height = shipBeingChoose.getShipImage().getWidth();
+                            width = shipBeingChoose.getShipImage().getHeight()-0.5f*gap;
+                            height = shipBeingChoose.getShipImage().getWidth()-0.5f*gap;
                         } else {
-                            width = shipBeingChoose.getShipImage().getWidth();
-                            height = shipBeingChoose.getShipImage().getHeight() - 0.8f*gap;
+                            width = shipBeingChoose.getShipImage().getWidth()-0.5f*gap;
+                            height = shipBeingChoose.getShipImage().getHeight()-0.5f*gap;
                         }
                         //x and y coordinates of top-left of image, relative to the board
                         float boardX = x - (width / 2);
                         float boardY = y - (height / 2);
 
                         int xy = boardView.locatePlace(boardX, boardY);
-                        boardView.lineGap();
+
                         if (xy == -1) {
                             return true;
                         }
@@ -123,6 +123,7 @@ public class PlaceShipActivity extends AppCompatActivity {
                                 shipBeingChoose.getShip().getDirection())) {
                             return true;
                         }
+
                         //redraw Boardview
                         boardView.invalidate();
                         shipBeingChoose.getShipImage().setBackgroundColor(Color.RED);
