@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">BattleShip</string>
     <string name="turn_time">Turn duration:</string>
-    <string name="prepare_time">Prepare duration:</string>
 </resources>

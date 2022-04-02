@@ -5,101 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/paper_68"
-    android:paddingVertical="50dp"
-    android:paddingHorizontal="50dp"
-    >
+    android:orientation="horizontal"
+    android:background="@drawable/paper_lines">
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/turn_time"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="left"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/turn_time"
-                android:theme="@style/Theme.BattleShip.Button_paper"
-                android:textColor="@color/black"
-                />
-            <com.google.android.material.textfield.TextInputEditText
-                android:textSize="30sp"
-                android:padding="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginLeft="70dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/prepare_time"
-                android:textColor="@color/black"
-                android:theme="@style/Theme.BattleShip.Button_paper"
-                />
-            <com.google.android.material.textfield.TextInputEditText
-                android:textSize="30sp"
-                android:padding="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00"
 
-                />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/paper_lines" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
         </LinearLayout>
 
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Game mode"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:layout_marginRight="30dp"
-            />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.BattleShip.Button_paper"
-            android:text="Classic Mode"
-            android:layout_marginRight="30dp"
-            />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.BattleShip.Button_paper"
-            android:textSize="30sp"
-            android:text="Our Mode"
-            />
-    </LinearLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Start"
-        android:paddingHorizontal="50dp"
-        android:paddingVertical="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:background="@drawable/button_custom"
-        app:backgroundTint="@null"
-        android:textColor="@color/black"
-        />
+    </FrameLayout>
 
 </LinearLayout>
